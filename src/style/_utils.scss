@@ -1,0 +1,27 @@
+$ui-component-border-radius: 3px;
+$ui-component-padding: 0.5em 1em;
+
+@mixin reset {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flex-center($direction: row, $gap: 0) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin set-width-height($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
+}
+
+@mixin ui-component($border: none) {
+  padding: $ui-component-padding;
+  border-radius: $ui-component-border-radius;
+  border: $border;
+}
