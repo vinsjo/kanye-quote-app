@@ -7,10 +7,10 @@
 }
 
 html {
-  @include utils.set-width-height(100vw, 100vh);
+  @include utils.width-height(100vw, 100vh);
 }
 body {
-  @include utils.set-width-height;
+  @include utils.width-height;
   min-height: fit-content;
   background-color: $body-bg;
   font-size: $main-font-size;
@@ -33,17 +33,6 @@ button:not(:disabled) {
   cursor: pointer;
 }
 
-div#root {
-  @include utils.set-width-height;
-}
-
-.app {
-  @include utils.set-width-height;
-  @include utils.flex-center(column, 2rem);
-  code {
-    display: inline-block;
-    background: rgb(56, 56, 56);
-    color: white;
-    @include utils.ui-component;
-  }
+#root {
+  @include utils.width-height;
 }

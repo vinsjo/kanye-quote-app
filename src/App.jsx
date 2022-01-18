@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react';
-// import './style/app.scss';
+import React from 'react';
+import KanyeQuotes from './components/KanyeQuotes';
+import './style/app.scss';
 
-function App() {
-  // Create the count state.
-  const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
+const App = () => {
   return (
-    <div className="app">
-      <p>
-        Page has been open for <code>{count}</code> seconds.
-      </p>
+    <div className="App">
+      <KanyeQuotes />
     </div>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,16 @@
+@use './utils';
+
+.App {
+  @include utils.width-height;
+  @include utils.flex-center;
+  padding: 2rem;
+  .kanye-quotes {
+    @include utils.width-height;
+    @include utils.max-width-height(50ch, 20rem);
+    @include utils.flex-container(space-between);
+    text-align: center;
+    .quote-container {
+      padding: 2rem 0;
+    }
+  }
+}
