@@ -1,7 +1,39 @@
-$main-font-size: 1rem;
-$main-font: Arial, Helvetica, sans-serif;
-$main-line-height: 160%;
+@use 'sass:map';
+@forward './utils';
 
-$text-color: rgba(20, 20, 20);
+$fonts: (
+  'main': (
+    'family': (
+      'Roboto Condensed',
+      Arial,
+      Helvetica,
+      sans-serif,
+    ),
+    'size': 1rem,
+    'line-height': 160%,
+  ),
+  'code': (
+    'family': (
+      'Source Code Pro',
+      'Courier New',
+      monospace,
+    ),
+  ),
+);
 
-$body-bg: white;
+$ui: (
+  'border-radius': 3px,
+  'padding': 0.5em 1em,
+);
+
+@mixin reset {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin ui-component($border: none) {
+  padding: map.get($ui, 'padding');
+  border-radius: map.get($ui, 'border-radius');
+  border: $border;
+}

@@ -29,16 +29,8 @@ const KanyeQuotes = ({ title }) => {
   return (
     <div className="kanye-quotes">
       <h3 className="title">{title}</h3>
-      <div className="quote-container">
-        <p
-          style={{
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? 'scale(1)' : 'scale(0)',
-            transition: 'opacity 0.1s ease, transform 0.1s ease',
-          }}
-        >
-          {outputText}
-        </p>
+      <div className={`container${loaded ? ' loaded' : ''}`}>
+        <p>{outputText}</p>
       </div>
       <button className="refresh" onClick={reload} disabled={!loaded}>
         Refresh Quote

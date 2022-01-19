@@ -1,21 +1,25 @@
 @use './config' as *;
-@use './utils';
+@use 'sass:map';
 
 * {
-  @include utils.reset;
-  line-height: $main-line-height;
+  @include reset;
 }
 
 html {
-  @include utils.width-height(100vw, 100vh);
+  @include size(100vw, 100vh);
 }
+
+body,
+#root {
+  @include size;
+}
+
 body {
-  @include utils.width-height;
-  min-height: fit-content;
-  background-color: $body-bg;
-  font-size: $main-font-size;
-  font-family: $main-font;
-  color: $text-color;
+  @include min-size(100%, fit-content);
+  @include set-bg-color(white);
+  font-size: map.get($fonts, 'main', 'size');
+  font-family: map.get($fonts, 'main', 'family');
+  line-height: map.get($fonts, 'main', 'line-height');
 }
 
 a {
@@ -27,12 +31,8 @@ input,
 textarea,
 select,
 button {
-  @include utils.ui-component;
+  @include ui-component;
 }
 button:not(:disabled) {
   cursor: pointer;
-}
-
-#root {
-  @include utils.width-height;
 }

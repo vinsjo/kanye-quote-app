@@ -1,16 +1,47 @@
-@use './utils';
-
+@use './config' as *;
+@use 'sass:map';
 .App {
-  @include utils.width-height;
-  @include utils.flex-center;
+  @include size;
+  @include flex-center;
   padding: 2rem;
   .kanye-quotes {
-    @include utils.width-height;
-    @include utils.max-width-height(50ch, 20rem);
-    @include utils.flex-container(space-between);
+    @include size;
+    @include max-size(50ch, 20rem);
+    @include grid-container(3rem 1fr 2.5rem, 1fr, 1rem);
+
     text-align: center;
-    .quote-container {
-      padding: 2rem 0;
+    .container {
+      @include size;
+      @include flex-center;
+      font-family: map.get($fonts, 'code', 'family');
+      p {
+        transform: scale(0);
+        opacity: 0;
+        @include set-transition(0.1s, ease, 0, opacity, transform);
+      }
+      &.loaded p {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    button {
+      @include min-size(20ch, 3rem);
+      @include set-bg-color(rgb(25, 25, 25));
+      @include set-transition(
+        0.1s,
+        ease,
+        0,
+        background-color,
+        color,
+        transform
+      );
+      &:hover {
+        @include set-bg-color(rgb(50, 50, 50));
+        transform: scale(1.05);
+      }
+      &:disabled {
+        @include set-bg-color(rgb(100, 100, 100));
+      }
     }
   }
 }
