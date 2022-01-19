@@ -1,57 +1,56 @@
 @use 'sass:color';
 
 @mixin flex-container(
-  $justify-content: center,
-  $align-items: center,
-  $direction: column,
-  $gap: 0
+	$justify-content: center,
+	$align-items: center,
+	$direction: column,
+	$gap: 0
 ) {
-  display: flex;
-  justify-content: $justify-content;
-  align-items: $align-items;
-  flex-direction: $direction;
-  gap: $gap;
+	display: flex;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	flex-direction: $direction;
+	gap: $gap;
 }
 
 @mixin flex-center($direction: column, $gap: 0) {
-  @include flex-container(center, center, $direction, $gap);
+	@include flex-container(center, center, $direction, $gap);
 }
 
 @mixin grid-container($rows, $cols, $gap: 0, $align: center, $justify: center) {
-  display: grid;
-  grid-template-rows: $rows;
-  grid-template-columns: $cols;
-  gap: $gap;
-  align-items: $align;
-  justify-items: $justify;
+	display: grid;
+	grid-template-rows: $rows;
+	grid-template-columns: $cols;
+	gap: $gap;
+	align-items: $align;
+	justify-items: $justify;
 }
 
 @mixin size($width: 100%, $height: 100%) {
-  width: $width;
-  height: $height;
+	width: $width;
+	height: $height;
 }
 @mixin max-size($width: 100%, $height: 100%) {
-  max-width: $width;
-  max-height: $height;
+	max-width: $width;
+	max-height: $height;
 }
 @mixin min-size($width: 0, $height: 0) {
-  min-width: $width;
-  min-height: $height;
+	min-width: $width;
+	min-height: $height;
 }
 
-@mixin set-transition($duration, $function, $delay, $properties...) {
-  transition-property: $properties;
-  transition-duration: $duration;
-  transition-timing-function: $function;
-  transition-delay: $delay;
+@mixin set-transition($duration, $function, $properties...) {
+	transition-property: $properties;
+	transition-duration: $duration;
+	transition-timing-function: $function;
 }
 
 @mixin set-bg-color($bg-color) {
-  background-color: $bg-color;
-  color: color.invert($bg-color);
+	background-color: $bg-color;
+	color: color.invert($bg-color);
 }
 
 @mixin set-scale-opacity($opacity, $scale) {
-  opacity: $opacity;
-  transform: scale($scale);
+	opacity: $opacity;
+	transform: scale($scale);
 }
