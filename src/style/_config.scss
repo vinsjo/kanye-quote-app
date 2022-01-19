@@ -2,38 +2,44 @@
 @forward './utils';
 
 $fonts: (
-  'main': (
-    'family': (
-      'Roboto Condensed',
-      Arial,
-      Helvetica,
-      sans-serif,
-    ),
-    'size': 1rem,
-    'line-height': 160%,
-  ),
-  'code': (
-    'family': (
-      'Source Code Pro',
-      'Courier New',
-      monospace,
-    ),
-  ),
+	'main': (
+		'family': (
+			'Roboto Condensed',
+			Arial,
+			Helvetica,
+			sans-serif,
+		),
+		'size': 1rem,
+		'line-height': 160%,
+	),
+	'code': (
+		'family': (
+			'Source Code Pro',
+			'Courier New',
+			monospace,
+		),
+	),
 );
 
 $ui: (
-  'border-radius': 3px,
-  'padding': 0.5em 1em,
+	'border-radius': 3px,
+	'padding': 0.5em 1em,
+);
+
+$link-color: (
+	'default': rgb(25, 25, 25),
+	'hover': rgb(50, 50, 50),
+	'inactive': rgb(100, 100, 100),
 );
 
 @mixin reset {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 @mixin ui-component($border: none) {
-  padding: map.get($ui, 'padding');
-  border-radius: map.get($ui, 'border-radius');
-  border: $border;
+	padding: map.get($ui, 'padding');
+	border-radius: map.get($ui, 'border-radius');
+	border: $border;
 }

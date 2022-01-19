@@ -25,7 +25,7 @@
 		}
 		button {
 			@include min-size(20ch, 3rem);
-			@include set-bg-color(rgb(25, 25, 25));
+			@include set-bg-color(map.get($link-color, 'default'));
 			@include set-transition(
 				0.1s,
 				ease,
@@ -34,12 +34,30 @@
 				transform
 			);
 			&:hover {
-				@include set-bg-color(rgb(50, 50, 50));
+				@include set-bg-color(map.get($link-color, 'hover'));
 				transform: scale(1.05);
 			}
 			&:disabled {
-				@include set-bg-color(rgb(100, 100, 100));
+				@include set-bg-color(map.get($link-color, 'inactive'));
 			}
+		}
+	}
+	.git-link {
+		display: block;
+		outline: none;
+		position: fixed;
+		bottom: 1rem;
+		right: 1rem;
+		z-index: 1;
+		@include size(2rem, 2rem);
+		.icon {
+			@include size(100%, auto);
+			fill: map.get($link-color, 'default');
+			@include set-transition(0.1s, ease, fill, transform);
+		}
+		&:hover .icon {
+			fill: map.get($link-color, 'hover');
+			transform: scale(1.05);
 		}
 	}
 }
