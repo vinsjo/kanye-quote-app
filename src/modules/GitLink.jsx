@@ -1,5 +1,4 @@
 import React from 'react';
-
 const GitLink = ({ url }) => {
 	return (
 		<a className="git-link" href={url} target="_blank">
